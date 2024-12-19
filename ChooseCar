@@ -1,0 +1,214 @@
+package application;
+
+import javafx.application.Application; 
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class ChooseCar extends Application{
+
+	
+	public void start(Stage primaryStage) {
+		
+		
+		//BorderPane pane = new BorderPane();
+		Pane pane = new Pane();
+		pane.minHeight(700);
+		pane.minWidth(800);
+		pane.setId("pane");
+		
+		//Header Label
+		Label label=new Label("Choose Car to Rent");
+		label.setLayoutX(176);
+		label.setLayoutY(20);
+		label.setFont(Font.font("Times New Roman", FontWeight.EXTRA_BOLD, FontPosture.ITALIC, 56));
+		label.setTextFill(Color.RED);
+		
+		//Cars labels
+		Label car1=new Label("Ferrari 488 GTB (RM7000/Day)");
+		car1.setLayoutX(281);
+		car1.setLayoutY(132);
+		car1.setFont(Font.font("Arial Black", FontWeight.BLACK, FontPosture.ITALIC,20));
+		car1.setTextFill(Color.WHITE);
+		
+		Label car2=new Label("Lamborghini Huracan (RM5000/Day)");
+		car2.setLayoutX(281);
+		car2.setLayoutY(252);
+		car2.setFont(Font.font("Arial Black", FontWeight.BLACK, FontPosture.ITALIC,20));
+		car2.setTextFill(Color.WHITE);
+		
+		Label car3=new Label("Mclaren 720S (RM7500/Day)");
+		car3.setLayoutX(281);
+		car3.setLayoutY(372);
+		car3.setFont(Font.font("Arial Black", FontWeight.BLACK, FontPosture.ITALIC,20));
+		car3.setTextFill(Color.WHITE);
+		
+		Label car4=new Label("Rolls Royce Wraith (RM5000/Day)");
+		car4.setLayoutX(281);
+		car4.setLayoutY(492);
+		car4.setFont(Font.font("Arial Black", FontWeight.BLACK, FontPosture.ITALIC,20));
+		car4.setTextFill(Color.WHITE);
+		
+		Label car5=new Label("Audi R8 V10 Spyder (RM5000/Day)");
+		car5.setLayoutX(281);
+		car5.setLayoutY(612);
+		car5.setFont(Font.font("Arial Black", FontWeight.BLACK, FontPosture.ITALIC,20));
+		car5.setTextFill(Color.WHITE);
+		
+		
+		
+		//Cars Images
+		ImageView ferrari = new ImageView(new Image("File:C:\\Users\\Asus\\eclipse-workspace\\ProjectGUI/Ferrari-488-GTB-removebg-preview.png"));
+		ImageView lamborghini = new ImageView(new Image("File:C:\\Users\\Asus\\eclipse-workspace\\ProjectGUI/Lamborghini-huracan-removebg-preview.png"));
+		ImageView mclaren = new ImageView(new Image("File:C:\\Users\\Asus\\eclipse-workspace\\ProjectGUI/McLaren-720S.png"));
+		ImageView rollsRoyce = new ImageView(new Image("File:C:\\Users\\Asus\\eclipse-workspace\\ProjectGUI/rolls-royce.png"));
+		ImageView audi = new ImageView(new Image("File:C:\\Users\\Asus\\eclipse-workspace\\ProjectGUI/audi-r8-spyder-removebg-preview.png"));
+		
+		//images size
+		ferrari.setFitHeight(100);
+		ferrari.setFitWidth(200);
+		lamborghini.setFitHeight(100);
+		lamborghini.setFitWidth(200);
+		mclaren.setFitHeight(100);
+		mclaren.setFitWidth(200);
+		rollsRoyce.setFitHeight(100);
+		rollsRoyce.setFitWidth(200);
+		audi.setFitHeight(100);
+		audi.setFitWidth(200);
+		
+		//images location
+		ferrari.setLayoutX(31.0);
+		ferrari.setLayoutY(132.0);
+		lamborghini.setLayoutX(31.0);
+		lamborghini.setLayoutY(252.0);
+		mclaren.setLayoutX(31.0);
+		mclaren.setLayoutY(372);
+		rollsRoyce.setLayoutX(31.0);
+		rollsRoyce.setLayoutY(492);
+		audi.setLayoutX(31.0);
+	    audi.setLayoutY(612);
+	    
+	    //Button to select Car
+	    Button button1 = new Button("Choose");
+	    button1.setLayoutX(720);
+	    button1.setLayoutY(132.0);
+	    button1.setId("record-sales");
+	    
+	    Button button2 = new Button("Choose");
+	    button2.setLayoutX(720);
+	    button2.setLayoutY(252.0);
+	    button2.setId("record-sales");
+	    
+	    Button button3 = new Button("Choose");
+	    button3.setLayoutX(720);
+	    button3.setLayoutY(372.0);
+	    button3.setId("record-sales");
+	    
+	    Button button4 = new Button("Choose");
+	    button4.setLayoutX(720);
+	    button4.setLayoutY(492.0);
+	    button4.setId("record-sales");
+	    
+	    Button button5 = new Button("Choose");
+	    button5.setLayoutX(720);
+	    button5.setLayoutY(612.0);
+	    button5.setId("record-sales");
+	    
+	    //Button Action
+	    button1.setOnAction(e->{
+	    	CarRental.setCarType("Ferrari 488 GTB");
+	    	CarRental.setPricePerDay(7000);
+	    	RentalChoice nextScene = new RentalChoice();
+	    	nextScene.start(primaryStage);
+	    	
+	    });
+	    
+	    button2.setOnAction(e->{
+	    	CarRental.setCarType("Lamborghini Huracan");
+	    	CarRental.setPricePerDay(5000);
+	    	RentalChoice nextScene = new RentalChoice();
+	    	nextScene.start(primaryStage);
+	    	
+	    });
+	    
+	    button3.setOnAction(e->{
+	    	CarRental.setCarType("McLaren 720S");
+	    	CarRental.setPricePerDay(7500);
+	    	RentalChoice nextScene = new RentalChoice();
+	    	nextScene.start(primaryStage);
+	    	
+	    });
+	    
+	    button4.setOnAction(e->{
+	    	CarRental.setCarType("Rolls Royce Wraith");
+	    	CarRental.setPricePerDay(5000);
+	    	RentalChoice nextScene = new RentalChoice();
+	    	nextScene.start(primaryStage);
+	    	
+	    });
+	    
+	    button5.setOnAction(e->{
+	    	CarRental.setCarType("Audi R8 V10 Spyder");
+	    	CarRental.setPricePerDay(5000);
+	    	RentalChoice nextScene = new RentalChoice();
+	    	nextScene.start(primaryStage);
+	    	
+	    });
+	    
+	  
+	    
+	    // Place labels in the pane
+		pane.getChildren().add(label);
+		pane.getChildren().add(car1);
+		pane.getChildren().add(car2);
+		pane.getChildren().add(car3);
+		pane.getChildren().add(car4);
+		pane.getChildren().add(car5);
+		
+		//Place button in the pane
+		pane.getChildren().add(button1);
+		pane.getChildren().add(button2);
+		pane.getChildren().add(button3);
+		pane.getChildren().add(button4);
+		pane.getChildren().add(button5);
+		
+		//Place images in the pane
+	    pane.getChildren().add(ferrari);
+	    pane.getChildren().add(lamborghini);
+	    pane.getChildren().add(mclaren);
+	    pane.getChildren().add(rollsRoyce);
+	    pane.getChildren().add(audi);
+	    
+	    // Create a scene and place it in the stage
+	    Scene scene = new Scene(pane,820,750);
+	    scene.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
+	    primaryStage.setTitle("Luxury Car Rental (Choose car)"); // Set the stage title
+	    primaryStage.setScene(scene); // Place the scene in the stage
+	    primaryStage.show(); // Display the stage
+		
+		
+		
+		
+	}
+	
+
+
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+}
